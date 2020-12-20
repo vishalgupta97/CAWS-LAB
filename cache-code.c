@@ -27,7 +27,7 @@ int main(int argc, char** argv)
  	{
  		for(int i = 0; i < size; i += 32)
  		{
- 			k = *(access+j);
+ 			k = *(access+i);
  		}
 	}
 */	
