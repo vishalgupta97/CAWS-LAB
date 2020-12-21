@@ -12,7 +12,7 @@ int main(int argc, char** argv)
 	logsize -= 2;
 	assert(logsize < LOGSIZE);
 	printf("Building for array with logsize %d\n", logsize+2);
-	int size = 1L << logsize;
+	register int size = 1L << logsize;
 	for(int i = 0; i < size; i += 32)
 		access[i] = (i+32)%size;
 	register int j = 0;
@@ -22,10 +22,11 @@ int main(int argc, char** argv)
 		j = *(access+j);
 	}
 	
-/* 	register int k = 0;
+/* 	register int i = 0;
+	volatile int k = 0; 
  	while(1)
  	{
- 		for(int i = 0; i < size; i += 32)
+ 		for(i = 0; i < size; i += 32)
  		{
  			k = *(access+i);
  		}
